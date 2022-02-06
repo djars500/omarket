@@ -69,8 +69,12 @@ if DEBUG:
     
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'aws',
+	    'USER': 'aws',
+	    'PASSWORD': '123456',
+	    'HOST': 'localhost',
+	    'PORT': '5432',
         }
     }
 else:
@@ -78,8 +82,8 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'aws',
-            'USER': 'postgres',
-            'PASSWORD': '123',
+            'USER': 'aws',
+            'PASSWORD': '123456',
             'HOST': 'localhost',
             'PORT': '5432',
         }
@@ -110,11 +114,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    '/var/www/static/',
-]
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'static/'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

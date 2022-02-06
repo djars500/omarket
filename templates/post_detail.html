@@ -19,7 +19,7 @@
             <a href="{% url 'post_detail' 1 %}"
                 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                 <img src="{% static 'img/333.png' %}" class="mr-5" width="56px" height="48px" alt="">
-                <span class="fs-4">Businesstrand</span>
+                <span class="fs-4">Businesstrend</span>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
@@ -51,7 +51,7 @@
             <div class="posts_inner">
                 <div class="p">{{post.title}}</div>
                 <div class="video">
-                    <video id="video" width="350" height="270" controls src="{{ post.video.url }}">
+                    <video id="video" width="350" height="270" controlsList="nodownload" controls src="{{ post.video.url }}">
                         Your browser does not support the video tag
                     </video>
                 </div>
@@ -61,7 +61,7 @@
             <div class="posts_inner">
                 <div class="p">{{post.title}}</div>
                 <div class="video">
-                    <video id="video" width="350" height="270" controls src="{{ post.video.url }}">
+                    <video id="video" width="350" height="270" controls controlsList="nodownload"  src="{{ post.video.url }}">
                         Your browser does not support the video tag
                     </video>
                 </div>
@@ -71,7 +71,7 @@
             <div class="posts_inner">
                 <div class="p">{{post.title}}</div>
                 <div class="video">
-                    <video id="video" width="350" height="270" controls src="{{ post.video.url }}">
+                    <video id="video" width="350" height="270" controlsList="nodownload"  controls src="{{ post.video.url }}">
                         Your browser does not support the video tag
                     </video>
                 </div>
