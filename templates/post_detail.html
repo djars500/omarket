@@ -44,7 +44,8 @@
                         <strong>{{request.user.email}}</strong>
                     </a>
                 </div>
-            </div>
+<a href="{% url 'logout' %}" style="margin-left: 10px;" class="btn btn-primary">Logout<a/> 
+           </div>
             <h2 class="cat_name">{{categori.name}}</h2>
             {% for post in posts %}
             {% if post.category.id == 1 and request.user.is_omarket %}
