@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
     <div class="flex">
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
             <a href="{% url 'post_detail' 1 %}"
@@ -44,6 +45,7 @@
                         <strong>{{request.user.email}}</strong>
                     </a>
                 </div>
+                <a href="{% url 'logout' %}" style="margin-left: 10px;" class="btn btn-primary">Выйти</a>
             </div>
             <h2 class="cat_name">{{categori.name}}</h2>
             {% for post in posts %}

@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-t#1%&s&6dg$if7)n0e@bo74znkfzs64569#@2n0n*rn=don3))'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -112,8 +112,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    '/var/www/static/',
-]
+ ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
@@ -138,3 +137,5 @@ else:
     PUBLIC_MEDIA_LOCATION = 'media/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
     DEFAULT_FILE_STORAGE = 'main.storage_backends.PublicMediaStorage'
+
+LOGOUT_REDIRECT_URL = '/'

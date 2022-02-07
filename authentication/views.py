@@ -21,3 +21,4 @@ def login(request):
             print('ni')
             # return redirect('posts/')
         return render(request, 'signin.html')
+    
