@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{categori.name}}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,75 +15,94 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+                <a href="{% url 'post_detail' 1 %}" class="navbar-brand logo__wildberres text-decoration-none">
+                    <img src="{% static 'img/333.png' %}" height="40px" alt="">
+                </a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% for category in categories %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url  'post_detail' category.pk %}">{{category.name}}</a>
+                    </li>
+                    {% endfor %}
+
+                </ul>
+                <form class="d-flex">
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center link-dark text-decoration-none" id="dropdownUser2"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{% if request.user.image %} {{request.user.image.url}} {% endif %}" alt="" width="32"
+                                height="32" class="rounded-circle me-2">
+                            <!-- <strong>{{request.user.}}</strong> -->
+                        </a>
+                    </div>
+                    <div>
+                        <a href="{% url 'logout' %}" style="margin: 0px 10px;  background-color: blueviolet;"
+                            class="btn btn-primary btn-sm">Выйти<a />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
 
     <div class="flex">
-        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-            <a href="{% url 'post_detail' 1 %}"
-                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <img src="{% static 'img/333.png' %}" class="mr-5" width="56px" height="48px" alt="">
-                <span class="fs-4">Businesstrend</span>
-            </a>
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-                {% for category in categories %}
-                <li>
-                    <a href='{% url "post_detail" category.pk%}' class="nav-link link-dark">
-                        {{category.name}}
-                    </a>
-                </li>
-                {% endfor %}
 
-            </ul>
-            <hr>
-        </div>
+
         <div class="posts">
-            <div class="user">
-                <div class="dropdown">
-                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none" id="dropdownUser2"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{% if request.user.image %} {{request.user.image.url}} {% endif %}" alt="" width="32"
-                            height="32" class="rounded-circle me-2">
-                        <strong>{{request.user.email}}</strong>
-                    </a>
-                </div>
-<a href="{% url 'logout' %}" style="margin-left: 10px;" class="btn btn-primary">Logout<a/> 
-           </div>
+            
 
             <h2 class="cat_name">{{categori.name}}</h2>
+
             {% for post in posts %}
             {% if post.category.id == 1 and request.user.is_omarket %}
             <div class="posts_inner">
-                <div class="p">{{post.title}}</div>
                 <div class="video">
-                    <video id="video" width="350" height="270" controlsList="nodownload" controls src="{{ post.video.url }}">
+                    <video id="video" width="300" height="220" controlsList="nodownload" controls
+                        src="{{ post.video.url }}">
                         Your browser does not support the video tag
                     </video>
+                    <div class="p">{{post.title}}</div>
                 </div>
             </div>
             {% endif %}
             {% if post.category.id == 2 and request.user.is_wildberres %}
             <div class="posts_inner">
-                <div class="p">{{post.title}}</div>
                 <div class="video">
-                    <video id="video" width="350" height="270" controls controlsList="nodownload"  src="{{ post.video.url }}">
+                    <video id="video" width="300" height="220" controls controlsList="nodownload"
+                        src="{{ post.video.url }}">
                         Your browser does not support the video tag
                     </video>
+                    <div class="p">{{post.title}}</div>
                 </div>
             </div>
             {% endif %}
             {% if post.category.id == 3 and request.user.is_tender %}
             <div class="posts_inner">
-                <div class="p">{{post.title}}</div>
                 <div class="video">
-                    <video id="video" width="350" height="270" controlsList="nodownload"  controls src="{{ post.video.url }}">
+                    <video id="video" width="300" height="220"  controlsList="nodownload" controls
+                        src="{{ post.video.url }}">
                         Your browser does not support the video tag
                     </video>
+                    <div class="p">{{post.title}}</div>
                 </div>
             </div>
             {% endif %}
             {% endfor %}
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
 </body>
+
+
 
 </html>

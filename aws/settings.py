@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-t#1%&s&6dg$if7)n0e@bo74znkfzs64569#@2n0n*rn=don3))'
 
-DEBUG = False
+DEBUG = True
 LOGOUT_REDIRECT_URL = '/'
 ALLOWED_HOSTS = ['*']
 
@@ -56,15 +56,12 @@ WSGI_APPLICATION = 'aws.wsgi.application'
 if DEBUG:
     
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'aws',
-	    'USER': 'aws',
-	    'PASSWORD': '123456',
-	    'HOST': 'localhost',
-	    'PORT': '5432',
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
+
 else:
     DATABASES = {
         'default': {
@@ -103,6 +100,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static/'
+STATICFILES_DIRS = [
+    'staticfiles/'
+]
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

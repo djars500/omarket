@@ -20,7 +20,7 @@ def post_detail(request, pk):
     
     categori = Category.objects.get(id=pk)
     categories = Category.objects.all()
-    posts = Post.objects.filter(category=categori)   
+    posts = Post.objects.filter(category=categori).order_by('id')  
     
     context = {
         'categories': categories,
