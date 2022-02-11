@@ -64,7 +64,7 @@
             {% if post.category.id == 1 and request.user.is_omarket %}
             <div class="posts_inner">
                 <div class="video">
-                    <video id="video" width="300" height="220" controlsList="nodownload" controls
+                    <video id="video" poster="../static/img/333.png" width="300" height="220" controlsList="nodownload" controls
                         src="{{ post.video.url }}">
                         Your browser does not support the video tag
                     </video>
@@ -75,7 +75,7 @@
             {% if post.category.id == 2 and request.user.is_wildberres %}
             <div class="posts_inner">
                 <div class="video">
-                    <video id="video" width="300" height="220" controls controlsList="nodownload"
+                    <video id="video" poster="../static/img/333.png" width="300" height="220" controls controlsList="nodownload"
                         src="{{ post.video.url }}">
                         Your browser does not support the video tag
                     </video>
@@ -86,7 +86,7 @@
             {% if post.category.id == 3 and request.user.is_tender %}
             <div class="posts_inner">
                 <div class="video">
-                    <video id="video" width="300" height="220"  controlsList="nodownload" controls
+                    <video id="video" poster="../static/img/333.png"  width="300" height="220"  controlsList="nodownload" controls
                         src="{{ post.video.url }}">
                         Your browser does not support the video tag
                     </video>
