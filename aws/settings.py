@@ -53,17 +53,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'aws.wsgi.application'
 
-if DEBUG:
+# if DEBUG:
     
-    DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+#     DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
-else:
-    DATABASES = {
+# else:
+DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'aws',
