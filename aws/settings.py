@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-t#1%&s&6dg$if7)n0e@bo74znkfzs64569#@2n0n*rn=don3))'
 
-DEBUG = True
+DEBUG = False
 LOGOUT_REDIRECT_URL = '/'
 ALLOWED_HOSTS = ['*']
 
