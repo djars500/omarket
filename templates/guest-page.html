@@ -1,0 +1,41 @@
+{% load static %}
+
+<div class="main-background">
+    <div class="header">
+        <div class="header__row">
+            <a href="/" class="header__logo">#Businesstrend</a>
+            <div class="header__subtitle">Оқу орталығына қош келдіңіз</div>
+        </div>
+    </div>
+    <div class="main__content container main__content-mobile">
+        <div class="main__hero">
+            <div class="main__title">
+                Біз сізге WILDBERRIES арқылы табыс табу жолын толыққанды үйрететін боламыз.
+            </div>
+            <div class="main__button-row">
+                <a href="https://wa.me/message/QBAXEBBJXHZRG1" class="button button--smalled">Сатып алу</a>
+                {% if request.user.is_authenticated %}
+                {% else %}
+                <a href="{% url 'login' %}" class="button button--smalled button--outlined" style="margin-left: 18px;">Кіру</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="main__poster">
+            <video id="my-video" class="video-js main__poster-video" controls preload="auto" width="232px" 
+                poster="{% static 'img/hero-img.png' %}" data-setup="{}">
+                <source src="https://djarscourse.s3.amazonaws.com/media/video/NCLayer_%D0%94%D0%BE%D1%81%D1%82%D1%83%D0%BF_%D0%B1%D0%B5%D1%80%D1%83.mp4" type="video/mp4" />
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a
+                    web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+            </video>
+        </div>
+    </div>
+    <div class="main__more">
+        <span class="material-symbols-outlined">
+            keyboard_arrow_up
+            </span>
+        <div class="main__more-text">Таныстырылу видеосы</div>
+    </div>
+</div>

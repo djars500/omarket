@@ -10,15 +10,14 @@ def login(request):
         return redirect('posts/1')
     else:
     
-        email = request.GET.get('email')
-        password = request.GET.get('password')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
         user = authenticate(request, username=email, password=password)
         print(user)
         if user is not None:
             signin(request, user)
-            return redirect('posts/1')
+            return redirect('/')
         else:
             print('ni')
-            # return redirect('posts/')
-        return render(request, 'signin.html')
+        return render(request, 'login.html')
     

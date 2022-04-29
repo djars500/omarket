@@ -1,0 +1,24 @@
+{% extends 'layouts/app.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="main-background">
+    <div class="header">
+        <div class="header__row">
+            <a href="/" class="header__logo">#Businesstrend</a>
+            <div class="header__subtitle">Оқу орталығына қош келдіңіз</div>
+        </div>
+    </div>
+    <div class="main__content  container">
+        <form action="{% url 'login' %}" method="post" class="signin__form">
+            {% csrf_token %}
+              <input type="email" class="form-control margin-bottom15"  placeholder="Пошта" name="email">
+              <input type="password" class="form-control margin-bottom30" placeholder="Құпия сөз" name="password">      
+            <button class="button" type="submit">Войти</button>  
+          </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -2,30 +2,36 @@ from django.shortcuts import render
 from .models import Post, Category
 from django.contrib.auth.decorators import login_required
 from authentication.models import User
-@login_required(login_url='/')
+
+
 def main(request):
+    context  = {}
+    if request.user.is_authenticated:
+        categories = request.user.courses.all()
+        context = {
+            'categories': categories
+        }
+        
     
-    categories = Category.objects.all()
-    posts = Post.objects.all()  
-    context = {
-        'categories': categories,
-        'posts': posts
-    }
     
-    return render(request, 'main.html', context)
+    return render(request, 'main-page.html', context)
 
 
 @login_required(login_url='/')
-def post_detail(request, pk):
+def category_detail(request, pk):
+
+    categories = request.user.courses.filter(id=pk)
+
+    if len(categories) > 0:        
+        posts = Post.objects.filter(category_id=pk)
+        print(posts)
+        context = {
+            "posts": posts,
+            "category": categories[0]
+        }   
+        return render(request, 'category_detail.html', context)
+    else:
+        return render(request, 'not-found.html')
+
     
-    categori = Category.objects.get(id=pk)
-    categories = Category.objects.all()
-    posts = Post.objects.filter(category=categori).order_by('id')  
     
-    context = {
-        'categories': categories,
-        'posts': posts,
-        'categori': categori
-    }
-     
-    return render(request, 'post_detail.html', context)

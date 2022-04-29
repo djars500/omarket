@@ -1,0 +1,15 @@
+{% extends 'layouts/app.html' %}
+{% load static %}
+
+{% block content %}
+
+<div>
+{% if request.user.is_authenticated %}
+{% include 'auth-page.html' %}
+{% else %}
+{% include 'guest-page.html' %}
+{% endif %}
+</div>
+
+
+{% endblock %}
