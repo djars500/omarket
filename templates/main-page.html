@@ -1,8 +1,11 @@
 {% extends 'layouts/app.html' %}
 {% load static %}
 
-{% block content %}
+{% block title %}
+#Businesstrend
+{% endblock %}
 
+{% block content %}
 <div>
 {% if request.user.is_authenticated %}
 {% include 'auth-page.html' %}
@@ -10,6 +13,4 @@
 {% include 'guest-page.html' %}
 {% endif %}
 </div>
-
-
 {% endblock %}

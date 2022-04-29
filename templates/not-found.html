@@ -1,9 +1,11 @@
 {% extends 'layouts/app.html' %}
 {% load static %}
 
+{% block title %}
+У вас нет прав 😓
+{% endblock %}
+
 {% block content %}
-
-
 <div class="main-background">
     <div class="header">
         <div class="header__row">
@@ -15,5 +17,4 @@
         <div class="header__logo" style="color:white;">У вас нет прав 😓</div>
     </div>
 </div>
-
 {% endblock %}
