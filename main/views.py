@@ -23,7 +23,7 @@ def category_detail(request, pk):
     categories = request.user.courses.filter(id=pk)
 
     if len(categories) > 0:        
-        posts = Post.objects.filter(category_id=pk).order_by('-id')
+        posts = Post.objects.filter(category_id=pk).order_by('id')
         print(posts)
         context = {
             "posts": posts,
